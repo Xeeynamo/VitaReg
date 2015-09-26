@@ -131,7 +131,7 @@ namespace VitaReg
                 _28 = reader.ReadUInt16();
                 fixed (IndexEntry* e = &this)
                     for (int i = 0; i < 7; i++)
-                        e->fat[i] = reader.ReadUInt16();
+                        e->blockOffset[i] = reader.ReadUInt16();
                 _38 = reader.ReadUInt16();
             }
             public void Write(BinaryWriter writer)
@@ -149,7 +149,7 @@ namespace VitaReg
                 writer.Write(_28);
                 fixed (IndexEntry* e = &this)
                     for (int i = 0; i < 28; i++)
-                        writer.Write(e->fat[i]);
+                        writer.Write(e->blockOffset[i]);
                 writer.Write(_38);
             }
         }
